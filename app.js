@@ -2,7 +2,12 @@
 const add = (num1, num2) => num1 + num2; 
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2; 
-const divide = (num1, num2) => num1 / num2; 
+const divide = (num1, num2) => num1 / num2;
+
+
+// Initialzing buttons and display elements
+const buttonsContainer = document.querySelector('.buttonsEl')
+const displayEl = document.querySelector('.display')
 
 // Creating an operate func to call above operators on numbers 
 const operate = (operator, num1, num2) => {
@@ -12,6 +17,25 @@ const operate = (operator, num1, num2) => {
     if (operator === divide) return divide(num1, num2)
 }
 
+displayEl.textContent = ''
 
 
-console.log(operate(multiply, 6, 2))
+const allNumberButtons = buttonsContainer.querySelectorAll(getNumberButtons())
+
+function getNumberButtons() {
+    let allButtons = [];
+    for (let i = 0; i <= 9; i++) {
+        allButtons.push(`#b${i}`) 
+    }
+    return allButtons
+}
+
+allNumberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        displayEl.textContent += button.textContent
+    })
+});
+
+// button8.addEventListener('click', () => {
+//     displayEl.textContent = button8.textContent
+// })
