@@ -8,6 +8,7 @@ const divide = (num1, num2) => num1 / num2;
 // Initialzing buttons and display elements
 const buttonsContainer = document.querySelector('.buttonsEl')
 const displayEl = document.querySelector('.display')
+const clearBtn = document.getElementById('aC')
 
 // Creating an operate func to call above operators on numbers 
 const operate = (operator, num1, num2) => {
@@ -35,6 +36,10 @@ allNumberButtons.forEach(button => {
         displayEl.textContent += button.textContent
     })
 });
+
+clearBtn.addEventListener('click', () => {
+    displayEl.textContent = ''
+})
 
 // button8.addEventListener('click', () => {
 //     displayEl.textContent = button8.textContent
