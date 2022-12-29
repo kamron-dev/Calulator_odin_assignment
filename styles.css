@@ -9,8 +9,9 @@
 }
 .display {
     background-color: white;
-    font-size: 180px;
+    font-size: 10rem;
     height: 195px;
+    width: 100%;
     
 }
 .buttonsDivs {
