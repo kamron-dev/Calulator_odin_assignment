@@ -1,10 +1,12 @@
-
+body {
+    font-family: "Lato", sans-serif;
+}
 
 
 .container {
     width: 55vh;
     height: 73.5vh;
-    background-color: blue;
+    background-color: #dcdcdc;
     border: 5px solid black;
     cursor: pointer;
 }
@@ -15,14 +17,23 @@
     width: 100%;
     text-align: end;
 }
+.display2 {
+    margin-bottom: 15px;
+}
 .buttonsDivs {
     display: flex;
-    border: 2px solid red;
+    border: 2px solid #ffd700;
     height: 12vh;
     justify-content: center;
     align-items: center;
     font-size: 120px;
     cursor: pointer;
+    opacity: 90%;
+}
+
+.buttonsDivs:hover {
+    background-color: ghostwhite;
+    opacity: 100%;
 }
 
 

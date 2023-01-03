@@ -24,11 +24,12 @@ const buttonsContainer = document.querySelector('.buttonsEl');
 let display1El = document.querySelector('.display');
 let display2El = document.querySelector('.display2');
 const clearBtn = document.getElementById('aC');
+const deleteBtn = document.getElementById('deleteBtn')
 
-const plusBtn = document.getElementById('plusBtn');
-const minusBtn = document.getElementById('minusBtn');
-const mulptiplyBtn = document.getElementById('multiplyBtn')
-const divideBtn = document.getElementById('divideBtn')
+// const plusBtn = document.getElementById('plusBtn');
+// const minusBtn = document.getElementById('minusBtn');
+// const mulptiplyBtn = document.getElementById('multiplyBtn')
+// const divideBtn = document.getElementById('divideBtn')
 const equalsBtn = document.getElementById('equalsBtn')
 
 
@@ -50,17 +51,22 @@ allOperatorBtns.forEach(button => {
           display2El.textContent = '';
           operator = button.value;
 
+        } else if (display1El.textContent && display2El.textContent) {
+            
+            
+            lastOperand = result 
+            newOperand = display2El.textContent
+            
+            operator = button.value
+            
+            showResult()
+
         } else {
             display1El.textContent += button.value;
             operator = button.value;
             newOperand = display2El.textContent;
         }
         
-        
-        
-        
-        // displayEl.textContent += operator
-        // clearScreen()
 
     })
 })
@@ -72,16 +78,17 @@ equalsBtn.addEventListener('click', () => {
     
 })
 
-// function clearScreen() {
-//     displayEl.textContent = ''
-// }
 
 function showResult() {
     result = operate(operator, Number(lastOperand), Number(newOperand));
     display1El.textContent = result
     display2El.textContent = '';
     operator = null;
-    lastOperand = result
+    // lastOperand = result;
+    lastOperand = display1El.textContent
+    // alert(lastOperand)
+    // alert(newOperand)
+    
 }
 
 
@@ -92,16 +99,11 @@ allNumberButtons.forEach(button => {
     })
 });
 
+deleteBtn.addEventListener('click', () => {
+    display2El.textContent = display2El.textContent.slice(0, display2El.textContent.length - 1)
+})
 
 
-// plusBtn.addEventListener('click', () => {
-//     display1El.textContent = display2El.textContent
-//     display2El.textContent = ''
-//     num1 = displayEl.textContent;
-//     num2 = displayEl.textContent;
-//     operate(add, num1, num2)
-
-// })
 
 
 
@@ -109,6 +111,10 @@ allNumberButtons.forEach(button => {
 clearBtn.addEventListener('click', () => {
     display1El.textContent = ''
     display2El.textContent = ''
+    lastOperand = null;
+    newOperand = null;
+    result = null;
+    operator = null;
 });
 
 
